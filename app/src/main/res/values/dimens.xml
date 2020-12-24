@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_42">42sp</dimen>
+    <dimen name="text_size_32">32sp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+    <dimen name="text_size_17">17sp</dimen>
+    <dimen name="text_size_15">15sp</dimen>
+    <dimen name="text_size_13">13sp</dimen>
+    <dimen name="text_size_11">11sp</dimen>
+
+    <dimen name="space_8dp">8dp</dimen>
+    <dimen name="space_12dp">12dp</dimen>
+    <dimen name="space_16dp">16dp</dimen>
+    <dimen name="space_24dp">24dp</dimen>
+    <dimen name="space_32dp">32dp</dimen>
+    <dimen name="space_42dp">42dp</dimen>
+
+    <dimen name="general_screen_margin">24dp</dimen>
+    <dimen name="general_elevation">3dp</dimen>
+    <dimen name="general_corner_radius">6dp</dimen>
+
+    <!-- Dialog Battle Result -->
+    <dimen name="dialog_battle_result_icon_size">100dp</dimen>
+
+    <!-- Dialog Inventory Detail -->
+    <dimen name="dialog_inventory_detail_unit_icon_size">100dp</dimen>
+
+    <!-- Dialog Inventory Detail -->
+    <dimen name="dialog_loading_screen_margin">42dp</dimen>
+
+    <!-- Dialog Inventory Detail -->
+    <dimen name="dialog_summon_icon_size">100dp</dimen>
+
+    <!-- Summon Fragment -->
+    <dimen name="summon_fragment_icon_size">240dp</dimen>
+
+    <!-- Versus Fragment -->
+    <dimen name="versus_fragment_icon_size">120dp</dimen>
+
+    <!-- Menu Option Item -->
+    <dimen name="menu_option_icon_size">100dp</dimen>
+
+    <!-- Transformer Item -->
+    <dimen name="transformer_item_icon_size">80dp</dimen>
+</resources>

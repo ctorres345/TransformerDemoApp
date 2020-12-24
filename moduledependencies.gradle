@@ -1,0 +1,62 @@
+ext{
+    /**
+     * APP MODULE
+     */
+    dependencies_app = [
+            [configuration: "implementation", dependency: kotlin_std_lib],
+            [configuration: "implementation", dependency: core_ktx],
+            [configuration: "implementation", dependency: fragment_ktx],
+            [configuration: "implementation", dependency: appCompat],
+            [configuration: "implementation", dependency: constraintLayout],
+            [configuration: "implementation", dependency: livedata],
+            [configuration: "implementation", dependency: viewmodel],
+            [configuration: "implementation", dependency: material],
+            [configuration: "implementation", dependency: navigation_ui_ktx],
+            [configuration: "implementation", dependency: navigation_runtime_ktx],
+            [configuration: "implementation", dependency: navigation_fragment_ktx],
+            [configuration: "implementation", dependency: hilt],
+            [configuration: "implementation", dependency: hilt_viewmodel],
+            [configuration: "kapt", dependency: hilt_compiler],
+            [configuration: "kapt", dependency: hilt_viewmodel_compiler],
+            [configuration: "kaptAndroidTest", dependency: hilt_compiler],
+            [configuration: "testImplementation", dependency: junit],
+            [configuration: "testImplementation", dependency: mockK_kotlin],
+            [configuration: "testImplementation", dependency: kotlin_test],
+            [configuration: "testImplementation", dependency: kotlinx_coroutines],
+            [configuration: "testImplementation", dependency: kotlinx_coroutines_test],
+            [configuration: "androidTestImplementation", dependency: junit_ext],
+            [configuration: "androidTestImplementation", dependency: espresso_core],
+            [configuration: "kaptTest", dependency: hilt_compiler]
+    ]
+
+    /**
+     * DOMAIN MODULE
+     */
+    dependencies_domain = [
+            [configuration: "implementation", dependency: kotlin_std_lib],
+            [configuration: "implementation", dependency: kotlinx_coroutines],
+            [configuration: "implementation", dependency: dagger],
+            [configuration: "kapt", dependency: dagger_compiler],
+            [configuration: "testImplementation", dependency: junit],
+            [configuration: "testImplementation", dependency: mockK_kotlin],
+            [configuration: "testImplementation", dependency: kotlin_test],
+            [configuration: "testImplementation", dependency: kotlinx_coroutines],
+            [configuration: "testImplementation", dependency: kotlinx_coroutines_test]
+    ]
+
+    /**
+     * DATA MODULE
+     */
+    dependencies_data = [
+            [configuration: "implementation", dependency: kotlin_std_lib],
+            [configuration: "implementation", dependency: retrofit],
+            [configuration: "implementation", dependency: retrofit_gson],
+            [configuration: "implementation", dependency: gson],
+            [configuration: "implementation", dependency: hilt],
+            [configuration: "implementation", dependency: okhttp3],
+            [configuration: "kapt", dependency: hilt_compiler],
+            [configuration: "kaptAndroidTest", dependency: hilt_compiler],
+            [configuration: "testImplementation", dependency: junit],
+            [configuration: "kaptTest", dependency: hilt_compiler]
+    ]
+}

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/general_screen_margin">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_battle_result_title"
+        android:gravity="center"
+        style="@style/TransformerTextStyle32"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/winning_team"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+    <TextView
+        android:id="@+id/winning_team"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_battle_result_winning_team_label"
+        android:gravity="center"
+        android:layout_margin="@dimen/space_8dp"
+        style="@style/TransformerTextStyle24"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/team_icon"/>
+
+    <ImageView
+        android:id="@+id/team_icon"
+        android:layout_width="@dimen/dialog_battle_result_icon_size"
+        android:layout_height="@dimen/dialog_battle_result_icon_size"
+        android:layout_marginTop="@dimen/space_12dp"
+        android:layout_marginBottom="@dimen/space_12dp"
+        android:src="@drawable/autobot_summon_icon"
+        app:layout_constraintTop_toBottomOf="@id/winning_team"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/winner_unit"/>
+
+    <TextView
+        android:id="@+id/winner_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        style="@style/TransformerTextStyle15"
+        app:layout_constraintTop_toBottomOf="@id/team_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/survivor_names" />
+
+    <TextView
+        android:id="@+id/survivor_names"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        style="@style/TransformerTextStyle15"
+        app:layout_constraintTop_toBottomOf="@id/winner_unit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

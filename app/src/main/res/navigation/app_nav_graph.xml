@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <action
+        android:id="@+id/main_activity_to_StartFragment"
+        app:destination="@id/startFragment"
+        />
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.pandaveloper.transformersdemo.presentation.ui.start.StartFragment"
+        android:label="fragment_start"
+        app:enterAnim="@android:anim/slide_in_left"
+        app:exitAnim="@android:anim/slide_out_right"
+        tools:layout="@layout/fragment_start">
+
+        <action
+            android:id="@+id/action_startFragment_to_homeFragment"
+            app:destination="@id/homeFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.pandaveloper.transformersdemo.presentation.ui.home.HomeFragment"
+        android:label="fragment_home"
+        app:enterAnim="@android:anim/slide_in_left"
+        app:exitAnim="@android:anim/slide_out_right"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_summonFragment"
+            app:destination="@id/summonFragment"/>
+
+        <action
+            android:id="@+id/action_homeFragment_to_InventoryFragment"
+            app:destination="@id/inventoryFragment"/>
+
+        <action
+            android:id="@+id/action_homeFragment_to_versusFragment"
+            app:destination="@id/versusFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/summonFragment"
+        android:name="com.pandaveloper.transformersdemo.presentation.ui.summon.SummonFragment"
+        android:label="fragment_summon"
+        app:enterAnim="@android:anim/slide_in_left"
+        app:exitAnim="@android:anim/slide_out_right"
+        tools:layout="@layout/fragment_summon"/>
+
+    <fragment
+        android:id="@+id/inventoryFragment"
+        android:name="com.pandaveloper.transformersdemo.presentation.ui.inventory.InventoryFragment"
+        android:label="fragment_inventory"
+        app:enterAnim="@android:anim/slide_in_left"
+        app:exitAnim="@android:anim/slide_out_right"
+        tools:layout="@layout/fragment_inventory"/>
+
+    <fragment
+        android:id="@+id/versusFragment"
+        android:name="com.pandaveloper.transformersdemo.presentation.ui.versus.VersusFragment"
+        android:label="fragment_versus"
+        app:enterAnim="@android:anim/slide_in_left"
+        app:exitAnim="@android:anim/slide_out_right"
+        tools:layout="@layout/fragment_versus"/>
+
+    <dialog
+        android:id="@+id/summonDialog"
+        android:name="com.pandaveloper.transformersdemo.presentation.ui.summon.dialog.result.SummonResultDialog"
+        android:label="dialog_summon"
+        tools:layout="@layout/dialog_summon"/>
+
+    <dialog
+        android:id="@+id/customUnitDialog"
+        android:name="com.pandaveloper.transformersdemo.presentation.ui.summon.dialog.customunit.CustomUnitDialog"
+        android:label="dialog_custom_unit"
+        tools:layout="@layout/dialog_custom_unit"/>
+
+    <dialog
+        android:id="@+id/inventoryUnitDetailDialog"
+        android:name="com.pandaveloper.transformersdemo.presentation.ui.inventory.dialog.detail.UnitDetailDialog"
+        android:label="dialog_inventory_unit_detail"
+        tools:layout="@layout/dialog_inventory_unit_detail"/>
+
+    <dialog
+        android:id="@+id/editUnitDialog"
+        android:name="com.pandaveloper.transformersdemo.presentation.ui.inventory.dialog.edit.EditUnitDialog"
+        android:label="dialog_edit_unit"
+        tools:layout="@layout/dialog_edit_unit"/>
+
+    <dialog
+        android:id="@+id/battleResultDialog"
+        android:name="com.pandaveloper.transformersdemo.presentation.ui.versus.dialog.BattleResultDialog"
+        android:label="dialog_battle_result"
+        tools:layout="@layout/dialog_battle_result"/>
+
+</navigation>

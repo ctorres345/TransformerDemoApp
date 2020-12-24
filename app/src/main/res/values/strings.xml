@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">TransformersDemo</string>
+    <string name="dialog_battle_result_title">Battle Results</string>
+    <string name="dialog_battle_result_winning_team_label">Winning Team</string>
+    <string name="dialog_custom_unit_title">Custom Unit</string>
+    <string name="dialog_custom_unit_name_hint">Name</string>
+    <string name="dialog_custom_unit_team_hint">Team</string>
+    <string name="dialog_custom_unit_type_hint">Type</string>
+    <string name="dialog_edit_unit_title">Edit Unit</string>
+    <string name="dialog_edit_unit_name_hint">Name</string>
+    <string name="dialog_edit_unit_team_hint">Team</string>
+    <string name="dialog_edit_unit_type_hint">Type</string>
+    <string name="dialog_edit_unit_button_label">Update</string>
+    <string name="dialog_custom_unit_button_label">Save</string>
+    <string name="dialog_inventory_unit_detail_title">Unit Detail</string>
+    <string name="dialog_loading_default_message">Loading...</string>
+    <string name="dialog_summon_title">New Unit</string>
+    <string name="fragment_home_title">Main Menu</string>
+    <string name="fragment_inventory_search_hint">Search...</string>
+    <string name="fragment_inventory_no_result_message">You don\'t have units. Go to summon and recruit new Transformers</string>
+    <string name="fragment_start_touch_message">Touch Screen</string>
+    <string name="summon_fragment_title">Summon Units</string>
+    <string name="fragment_versus_title">BATTLE</string>
+    <string name="versus_fragment_vs_label">VS</string>
+    <string name="versus_fragment_battle_button_label">Start Battle</string>
+</resources>

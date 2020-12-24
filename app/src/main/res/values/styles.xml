@@ -1,0 +1,78 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TransformerTextStyle" parent="">
+        <item name="android:fontFamily">@font/transformer_font</item>
+    </style>
+
+    <style name="TransformerTextStyle42" parent="TransformerTextStyle">
+        <item name="android:textSize">@dimen/text_size_42</item>
+    </style>
+
+    <style name="TransformerTextStyle32" parent="TransformerTextStyle">
+        <item name="android:textSize">@dimen/text_size_32</item>
+    </style>
+
+    <style name="TransformerTextStyle24" parent="TransformerTextStyle">
+        <item name="android:textSize">@dimen/text_size_24</item>
+    </style>
+
+    <style name="TransformerTextStyle15" parent="TransformerTextStyle">
+        <item name="android:textSize">@dimen/text_size_15</item>
+    </style>
+
+    <style name="TransformerTextStyle13" parent="TransformerTextStyle">
+        <item name="android:textSize">@dimen/text_size_13</item>
+    </style>
+
+    <style name="TransformersTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextAppearance">@style/TransformerTextInputLayout.HintText</item>
+        <item name="fontFamily">@font/transformer_font</item>
+        <item name="boxStrokeColor">@color/colorPrimaryDark</item>
+        <item name="cornerRadius">@dimen/general_corner_radius</item>
+    </style>
+
+    <style name="TransformersTextInputLayout.Spinner" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="hintTextAppearance">@style/TransformerTextInputLayout.HintText</item>
+        <item name="fontFamily">@font/transformer_font</item>
+        <item name="boxStrokeColor">@color/colorPrimaryDark</item>
+        <item name="cornerRadius">@dimen/general_corner_radius</item>
+    </style>
+
+    <style name="TransformersInputEditText" parent="">
+        <item name="android:imeOptions">actionDone</item>
+        <item name="maxLines">1</item>
+        <item name="fontFamily">@font/transformer_font</item>
+    </style>
+
+    <style name="TransformersTextInputLayout13" parent="TransformersTextInputLayout">
+        <item name="android:textSize">@dimen/text_size_13</item>
+    </style>
+
+    <style name="TransformersTextInputLayout13.Spinner" parent="TransformersTextInputLayout.Spinner">
+        <item name="android:textSize">@dimen/text_size_13</item>
+    </style>
+
+    <style name="TransformersInputEditText15" parent="TransformersInputEditText">
+        <item name="android:textSize">@dimen/text_size_15</item>
+    </style>
+
+    <style name="TransformerTextInputLayout.HintText" parent="">
+        <item name="android:textSize">@dimen/text_size_13</item>
+        <item name="fontFamily">@font/transformer_font</item>
+    </style>
+
+    <style name="TransformerDialog" parent="Theme.MaterialComponents.DayNight.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@color/gray</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+    </style>
+
+</resources>

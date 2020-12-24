@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:padding="@dimen/general_screen_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_custom_unit_title"
+        android:gravity="center"
+        style="@style/TransformerTextStyle42"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/name_layout"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/dialog_custom_unit_name_hint"
+        android:layout_marginBottom="@dimen/space_8dp"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        style="@style/TransformersTextInputLayout13"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/team_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            style="@style/TransformersInputEditText15"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/team_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/dialog_custom_unit_team_hint"
+        android:layout_marginBottom="@dimen/space_8dp"
+        style="@style/TransformersTextInputLayout13.Spinner"
+        app:endIconMode="dropdown_menu"
+        app:errorEnabled="true"
+        app:layout_constraintTop_toBottomOf="@id/name_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/type_layout">
+
+        <AutoCompleteTextView
+            android:id="@+id/team_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable = "true"
+            android:focusable = "true"
+            android:focusableInTouchMode = "false"
+            android:inputType = "none"
+            style="@style/TransformerTextStyle15"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/type_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/dialog_custom_unit_type_hint"
+        android:layout_marginBottom="@dimen/space_8dp"
+        style="@style/TransformersTextInputLayout13.Spinner"
+        app:endIconMode="dropdown_menu"
+        app:errorEnabled="true"
+        app:layout_constraintTop_toBottomOf="@id/team_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/save_button">
+
+        <AutoCompleteTextView
+            android:id="@+id/type_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable = "true"
+            android:focusable = "true"
+            android:focusableInTouchMode = "false"
+            android:inputType = "none"
+            style="@style/TransformerTextStyle15"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_custom_unit_button_label"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimary"
+        style="@style/TransformerTextStyle15"
+        app:layout_constraintTop_toBottomOf="@id/type_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
