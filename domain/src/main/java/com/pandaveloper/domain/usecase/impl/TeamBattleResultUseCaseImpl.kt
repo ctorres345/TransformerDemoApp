@@ -18,6 +18,8 @@ class TeamBattleResultUseCaseImpl @Inject constructor() : TeamBattleResultUseCas
         autobotTeam: List<Transformer>,
         decepticonTeam: List<Transformer>
     ): TeamBattleResult {
+        if(autobotTeam.isEmpty() || decepticonTeam.isEmpty()) return TeamBattleResult.Tie
+
         val autobotLineup = autobotTeam.sortedBy { it.rank }.toMutableList()
         val decepticonLineup = decepticonTeam.sortedBy { it.rank }.toMutableList()
         val totalRounds = min(autobotLineup.size, decepticonLineup.size)

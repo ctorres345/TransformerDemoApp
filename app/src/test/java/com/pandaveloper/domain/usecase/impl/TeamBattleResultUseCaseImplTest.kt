@@ -9,6 +9,14 @@ class TeamBattleResultUseCaseImplTest {
     private val useCase = TeamBattleResultUseCaseImpl()
 
     @Test
+    fun `Given a call to the use case with empty teams, then the use case will return a tie`() {
+        //Result should be a tie
+        val result = useCase.execute(emptyList(), emptyList())
+
+        Assert.assertTrue(result is TeamBattleResult.Tie)
+    }
+
+    @Test
     fun `Given a fight between Optimus and any other decepticon, the use case will return a AutobotWin result due to the special rule`() {
         //Create Optimus Prime
         val autobotTeam = listOf(TestHelper.createAutobot("Optimus Prime"))
