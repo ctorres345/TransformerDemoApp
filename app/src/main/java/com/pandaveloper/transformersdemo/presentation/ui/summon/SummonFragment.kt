@@ -41,14 +41,9 @@ class SummonFragment : BaseViewModelFragment() {
     }
 
     override fun initUI() {
-        loadingDialog.showLoading()
-        viewModel.fetchRecruitableUnits()
         binding.summonIcon.setDebounceOnClickListener {
-            if(viewModel.getAvailableUnits().isNotEmpty()){
-                loadingDialog.showLoading()
-                val summonedUnit = viewModel.getAvailableUnits().random()
-                viewModel.registerTransformer(summonedUnit)
-            }
+            loadingDialog.showLoading("Summoning Unit...")
+            viewModel.summonUnit()
         }
         binding.createButton.setDebounceOnClickListener {
             findNavController().navigate(R.id.customUnitDialog)
@@ -69,7 +64,7 @@ class SummonFragment : BaseViewModelFragment() {
         event?.getContentIfNotHandled()?.let {
             if(it is CustomUnitViewState.OnUnitCreationSuccess){
                 findNavController().navigateUp()
-                loadingDialog.dismissLoading()
+                loadingDialog.showLoading()
                 viewModel.registerTransformer(it.transformer)
             }
         }
@@ -78,15 +73,14 @@ class SummonFragment : BaseViewModelFragment() {
     private fun onViewStateUpdated(summonViewState: SummonViewState?) {
         summonViewState?.let {
             when(it) {
-                is SummonViewState.OnUnitCreationSuccess -> {
+                is SummonViewState.OnUnitSummonSuccess -> {
                     loadingDialog.dismissLoading()
                     showSummonedUnit(it.summonedUnit)
                 }
-                is SummonViewState.OnUnitCreationError -> {
+                is SummonViewState.OnUnitSummonError -> {
                     loadingDialog.dismissLoading()
                     Toast.makeText(requireContext(), it.errorMessage, Toast.LENGTH_LONG).show()
                 }
-                is SummonViewState.OnRecruitableTransformersReceived -> loadingDialog.dismissLoading()
             }
         }
     }

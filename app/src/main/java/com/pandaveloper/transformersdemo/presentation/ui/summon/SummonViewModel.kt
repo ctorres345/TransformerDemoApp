@@ -23,21 +23,12 @@ class SummonViewModel @ViewModelInject constructor(
     val getViewState: LiveData<SummonViewState> = viewState
     private val recruitableUnits : MutableList<TransformerUIModel> = mutableListOf()
 
-    fun fetchRecruitableUnits() {
-        viewModelScope.launch {
-            val result = getRecruitableTransformersUseCase.execute()
-            recruitableUnits.apply {
-                clear()
-                addAll(
-                    when(result) {
-                        is TransformerResult.Success -> result.transformerList.map { it.toUIModel() }
-                        is TransformerResult.Error -> {
-                            listOf(Constants.defaultTransformer)
-                        }
-                    }
-                )
-            }
-            viewState.postValue(SummonViewState.OnRecruitableTransformersReceived)
+    fun summonUnit() {
+        if(recruitableUnits.isEmpty()) {
+            fetchRecruitableUnits()
+        } else {
+            val randomUnit = recruitableUnits.random()
+            viewState.value = SummonViewState.OnUnitSummonSuccess(randomUnit.toSummonedUnitUIModel())
         }
     }
 
@@ -45,13 +36,27 @@ class SummonViewModel @ViewModelInject constructor(
         viewModelScope.launch {
             val result = try {
                 registerTransformerUseCase.execute(transformerUIModel.toDomainModel())
-                SummonViewState.OnUnitCreationSuccess(transformerUIModel.toSummonedUnitUIModel())
+                SummonViewState.OnUnitSummonSuccess(transformerUIModel.toSummonedUnitUIModel())
             } catch (ex: Exception) {
-                SummonViewState.OnUnitCreationError("Unit Creation Error. Please Try Again")
+                SummonViewState.OnUnitSummonError("Unit Creation Error. Please Try Again")
             }
             viewState.postValue(result)
         }
     }
 
-    fun getAvailableUnits() = recruitableUnits.toList()
+    private fun fetchRecruitableUnits() {
+        viewModelScope.launch {
+            val result = getRecruitableTransformersUseCase.execute()
+            recruitableUnits.apply {
+                clear()
+                addAll(
+                    when(result) {
+                        is TransformerResult.Success -> result.transformerList.map { it.toUIModel() }
+                        is TransformerResult.Error -> listOf(Constants.defaultTransformer)
+                    }
+                )
+            }
+            summonUnit()
+        }
+    }
 }

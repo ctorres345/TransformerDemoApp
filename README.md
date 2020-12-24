@@ -1,8 +1,7 @@
-# TRANSFORMER DEMO APPLICATION
+### TRANSFORMER ANDROID APPLICATION
+This project has been develop as a technical mobile test for Aequilibrium
 
-This project has been develop as a technical mobile test for Aequilibrium.
-
-## REQUIREMENTS
+## Requirements
 
 Create an application that makes use of their AllSpark API to manage a list of transformers
 and perform different use cases with that data.
@@ -19,8 +18,9 @@ The prerequisites were the following
 • Application should be responsive over multiple screen sizes
 • Application should be built in Kotlin
 • UI libraries not allowed
+• No data persistance allowed
 
-## ARQUITECTURE
+## Arquitecture
 
 For the whole project I applied Clean Architecture by separating concerns into their own modules. 
 
@@ -28,7 +28,7 @@ For the whole project I applied Clean Architecture by separating concerns into t
 • Domain 
 • Data
 
-## TECNOLOGIES USED IN THE PROJECT
+## Libraries and Technologies I used?
 
 • Livedata
 • Dependency Injection with Hilt
@@ -38,7 +38,7 @@ For the whole project I applied Clean Architecture by separating concerns into t
 • Navigation Library
 • Retrofit + Okhttp3
 
-## PERSONAL COMMENTARY
+## Personal Commentary
 
 I'm not that familiar with Transformer as a whole but the project was really fun. Instead of just
 trying to make the CRUD as simple as possible I tried to make it look as a game so I appreciate the
@@ -54,9 +54,29 @@ test the battle functionality.
 
 Thanks to https://www.camphortree.net/tf/specs/ that served as a reference for that data
 
-## NOTES
+## How can this project be improved?
+• Create Local implementation for the use cases. Since for this demo I can't use data persistance
+there's a lot of use cases that can take advantage of that to manage your units.
+• Implement secure shared preferences
+• Add more unit/UI test
+• Use Kotlin DSL (I did but I had some config problem with some plugins so I didn't spent much time on it)  
+• Improve Gradle dependency scripts (Kotlin dsl can make this easy)
+• Add lint checks
+• The fight screen will always generate the same result since the teams does not change
+we can improve this by shuffling the teams. This wasn't on the requirements so I didn't want to
+go beyond the scope for now.
+
+## Notes
 
 • The Api doc says that the TransformerId is an Int but in reality is a String.
 • This can be improved with more test and some UI refactor since it's pretty simple as it is
 • Increase the minimum sdk can help to use some libraries such as the security one in order to use
 encrypted shared preferences.
+
+## Changelog
+
+Version 1.0.0
+• Inventory screen implement to check your registered units
+• Summon screen to recruit new units and create custom ones
+• Battle screen to simulate a Battle between your units
+• Added TeamBattleResultUseCaseImplTest and ValidateVersusTeamsUseCaseImplTest
