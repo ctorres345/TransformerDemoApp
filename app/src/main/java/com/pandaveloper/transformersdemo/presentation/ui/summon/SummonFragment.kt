@@ -19,6 +19,7 @@ import com.pandaveloper.transformersdemo.presentation.ui.summon.dialog.customuni
 import com.pandaveloper.transformersdemo.presentation.ui.summon.dialog.customunit.CustomUnitViewState
 import com.pandaveloper.transformersdemo.util.Constants
 import com.pandaveloper.transformersdemo.util.LoadingDialog
+import com.pandaveloper.transformersdemo.util.SingleEmitionEvent
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -64,9 +65,10 @@ class SummonFragment : BaseViewModelFragment() {
         viewModel.dispose()
     }
 
-    private fun onSharedViewStateUpdated(customUnitViewState: CustomUnitViewState?) {
-        customUnitViewState?.let {
+    private fun onSharedViewStateUpdated(event: SingleEmitionEvent<CustomUnitViewState>?) {
+        event?.getContentIfNotHandled()?.let {
             if(it is CustomUnitViewState.OnUnitCreationSuccess){
+                findNavController().navigateUp()
                 loadingDialog.dismissLoading()
                 viewModel.registerTransformer(it.transformer)
             }

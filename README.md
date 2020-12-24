@@ -1,4 +1,4 @@
-# TRANSFORMER ALL SPARK BATTLE DEMO APPLICATION
+# TRANSFORMER DEMO APPLICATION
 
 This project has been develop as a technical mobile test for Aequilibrium.
 

@@ -24,6 +24,7 @@ import com.pandaveloper.transformersdemo.presentation.ui.inventory.dialog.edit.E
 import com.pandaveloper.transformersdemo.presentation.ui.inventory.dialog.edit.EditUnitViewState
 import com.pandaveloper.transformersdemo.util.Constants
 import com.pandaveloper.transformersdemo.util.LoadingDialog
+import com.pandaveloper.transformersdemo.util.SingleEmitionEvent
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -54,9 +55,10 @@ class InventoryFragment : BaseViewModelFragment() {
         observe(sharedViewModel.getViewState, ::onSharedViewStateUpdated)
     }
 
-    private fun onSharedViewStateUpdated(editUnitViewState: EditUnitViewState?) {
-        editUnitViewState?.let {
+    private fun onSharedViewStateUpdated(event: SingleEmitionEvent<EditUnitViewState>?) {
+        event?.getContentIfNotHandled()?.let {
             if(it is EditUnitViewState.OnUnitUpdated){
+                findNavController().navigateUp()
                 loadingDialog.showLoading()
                 viewModel.updateUnit(it.transformer)
             }

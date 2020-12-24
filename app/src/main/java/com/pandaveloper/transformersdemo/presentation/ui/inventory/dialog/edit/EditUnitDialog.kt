@@ -16,6 +16,7 @@ import com.pandaveloper.transformersdemo.presentation.adapter.UnitTypeAdapter
 import com.pandaveloper.transformersdemo.presentation.base.observe
 import com.pandaveloper.transformersdemo.presentation.base.setDebounceOnClickListener
 import com.pandaveloper.transformersdemo.util.Constants
+import com.pandaveloper.transformersdemo.util.SingleEmitionEvent
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -84,10 +85,9 @@ class EditUnitDialog : BottomSheetDialogFragment(){
         observe(viewModel.getViewState, ::onViewStateUpdated)
     }
 
-    private fun onViewStateUpdated(customUnitViewState: EditUnitViewState?) {
-        customUnitViewState?.let {
+    private fun onViewStateUpdated(event: SingleEmitionEvent<EditUnitViewState>?) {
+        event?.getContentIfNotHandled()?.let {
             when(it) {
-                is EditUnitViewState.OnUnitUpdated -> findNavController().navigateUp()
                 is EditUnitViewState.OnUnitNameError -> showUnitNameError(it.errorMessage)
                 is EditUnitViewState.OnUnitTypeError -> {
                     binding.nameLayout.error = null

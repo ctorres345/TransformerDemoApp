@@ -8,25 +8,26 @@ import com.pandaveloper.transformersdemo.enums.UnitType
 import com.pandaveloper.transformersdemo.model.TransformerUIModel
 import com.pandaveloper.transformersdemo.presentation.base.BaseViewModel
 import com.pandaveloper.transformersdemo.util.Constants
+import com.pandaveloper.transformersdemo.util.SingleEmitionEvent
 
 class EditUnitViewModel @ViewModelInject constructor() : BaseViewModel() {
-    private val viewState: MutableLiveData<EditUnitViewState> = MutableLiveData()
-    val getViewState: LiveData<EditUnitViewState> = viewState
+    private val viewState: MutableLiveData<SingleEmitionEvent<EditUnitViewState>> = MutableLiveData()
+    val getViewState: LiveData<SingleEmitionEvent<EditUnitViewState>> = viewState
 
     fun updateUnit(originalUnit: TransformerUIModel, name: String, team: UnitTeam?, type: UnitType?) {
         if(name.isEmpty()){
-            viewState.value = EditUnitViewState.OnUnitNameError("Please insert a valid name for your unit")
+            viewState.value = SingleEmitionEvent(EditUnitViewState.OnUnitNameError("Please insert a valid name for your unit"))
             return
         }
         if(team == null){
-            viewState.value = EditUnitViewState.OnUnitTeamError("Please select a valid team for your unit")
+            viewState.value = SingleEmitionEvent(EditUnitViewState.OnUnitTeamError("Please select a valid team for your unit"))
             return
         }
         if(type == null){
-            viewState.value = EditUnitViewState.OnUnitTypeError("Please select a valid type for your unit")
+            viewState.value = SingleEmitionEvent(EditUnitViewState.OnUnitTypeError("Please select a valid type for your unit"))
             return
         }
-        viewState.value = EditUnitViewState.OnUnitUpdated(
+        viewState.value = SingleEmitionEvent(EditUnitViewState.OnUnitUpdated(
             originalUnit.apply {
                 this.name = name
                 this.team = team
@@ -36,7 +37,7 @@ class EditUnitViewModel @ViewModelInject constructor() : BaseViewModel() {
                     UnitType.TANK -> Constants.UnitTypeStats.tank
                 }
             }
-        )
+        ))
     }
 
 }

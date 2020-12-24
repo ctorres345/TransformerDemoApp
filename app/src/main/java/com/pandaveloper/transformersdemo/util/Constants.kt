@@ -46,7 +46,7 @@ object Constants {
             option = MenuOption.BATTLE
         ),
         MenuOptionUIModel(
-            displayName = "Exit",
+            displayName = "Exit Session",
             option = MenuOption.EXIT
         )
     )
