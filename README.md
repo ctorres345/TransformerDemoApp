@@ -8,35 +8,35 @@ and perform different use cases with that data.
 
 The Highlighted Operations were the following
 
-• Create and Edit new unit and send them to their API
-• Fetch unit already registered
-• Simulate a battle between them based on their specs present in the response objects
+* Create and Edit new unit and send them to their API
+* Fetch unit already registered
+* Simulate a battle between them based on their specs present in the response objects
 
 The prerequisites were the following
 
-• Application must target Android 4.4, API level 19 and above
-• Application should be responsive over multiple screen sizes
-• Application should be built in Kotlin
-• UI libraries not allowed
-• No data persistance allowed
+* Application must target Android 4.4, API level 19 and above
+* Application should be responsive over multiple screen sizes
+* Application should be built in Kotlin
+* UI libraries not allowed
+* No data persistance allowed
 
 ## Arquitecture
 
 For the whole project I applied Clean Architecture by separating concerns into their own modules. 
 
-• APP -> Presentation  
-• Domain  
-• Data
+* APP -> Presentation
+* Domain
+* Data
 
 ## Libraries and Technologies I used?
 
-• Livedata  
-• Dependency Injection with Hilt  
-• Material Library  
-• MockK  
-• Coroutines  
-• Navigation Library  
-• Retrofit + Okhttp3
+* Livedata
+* Dependency Injection with Hilt
+* Material Library
+* MockK
+* Coroutines
+* Navigation Library
+* Retrofit + Okhttp3
 
 ## Personal Commentary
 
@@ -67,9 +67,7 @@ Thanks to https://www.camphortree.net/tf/specs/ that served as a reference for t
 ## Notes
 
 * The Api doc says that the TransformerId is an Int but in reality is a String
-* This can be improved with more test and some UI refactor since it's pretty simple as it is
-* Increase the minimum sdk can help to use some libraries such as the security one in order to use  
-encrypted shared preferences.
+* For the battle section I wasn't sure if it always going to be Decepticons vs Autobots so I kinda assumed that for some validations. Certainly the logic for that use case could be modified to support any unit vs any unit.
 
 ## Changelog
 
