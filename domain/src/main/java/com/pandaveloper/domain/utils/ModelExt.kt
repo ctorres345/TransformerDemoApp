@@ -8,19 +8,19 @@ fun Transformer.calculateRating() : Int {
 }
 
 fun Transformer.isOptimus() : Boolean {
-    return this.name == "Optimus Prime"
+    return this.name == Constants.OPTIMUS
 }
 
 fun Transformer.isPredaking() : Boolean {
-    return this.name == "Predaking"
+    return this.name == Constants.PREDAKING
 }
 
 fun Transformer.isAutobot() : Boolean {
-    return this.team == "A"
+    return this.team == Constants.AUTOBOT_TEAM
 }
 
 fun Transformer.isDecepticon() : Boolean {
-    return this.team == "D"
+    return this.team == Constants.DECEPTICON_TEAM
 }
 
 fun List<Transformer>.getNames() : String {

@@ -1,19 +1,17 @@
 package com.pandaveloper.domain.usecase.impl
 
-import com.pandaveloper.domain.model.result.TeamBattleResult
 import com.pandaveloper.domain.model.result.TeamValidationResult
 import com.pandaveloper.domain.repository.TransformerRepository
+import com.pandaveloper.domain.testutils.CoroutineTestRule
+import com.pandaveloper.domain.testutils.TestHelper
 import com.pandaveloper.domain.usecase.ValidateVersusTeamsUseCase
-import com.pandaveloper.testUtils.CoroutineTestRule
-import com.pandaveloper.testUtils.TestHelper
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
-import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
-import kotlinx.coroutines.test.withTestContext
 import org.junit.Assert
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

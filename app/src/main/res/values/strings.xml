@@ -23,4 +23,10 @@
     <string name="fragment_versus_title">BATTLE</string>
     <string name="versus_fragment_vs_label">VS</string>
     <string name="versus_fragment_battle_button_label">Start Battle</string>
+
+    <!-- Transformer Adapter -->
+    <string name="transformer_adapter_unit_name_label">Name: %1$s</string>
+    <string name="transformer_adapter_unit_rating_label">Overall Rating: %1$s</string>
+    <string name="transformer_adapter_unit_team_label">Team: %1$s</string>
+
 </resources>

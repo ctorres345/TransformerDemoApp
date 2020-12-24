@@ -55,26 +55,27 @@ test the battle functionality.
 Thanks to https://www.camphortree.net/tf/specs/ that served as a reference for that data
 
 ## How can this project be improved?
-• Create Local implementation for the use cases. Since for this demo I can't use data persistance there's a lot of use cases that can take advantage of that to manage your units.  
-• Implement secure shared preferences  
-• Add more unit/UI test  
-• Use Kotlin DSL (I did but I had some config problem with some plugins so I didn't spent much time on it)  
-• Improve Gradle dependency scripts (Kotlin dsl can make this easy)  
-• Add lint checks  
-• The fight screen will always generate the same result since the teams does not change we can improve this by shuffling the teams. This wasn't on the requirements so I didn't want to go beyond the scope for now.
+* Create Local implementation for the use cases. Since for this demo I can't use data persistance there's a lot of use cases that can take advantage of that to manage your units.
+* Implement secure shared preferences
+* Add more unit/UI test
+* Use Kotlin DSL (I did but I had some config problem with some plugins so I didn't spent much time on it)
+* Improve Gradle dependency scripts (Kotlin dsl can make this easy)
+* Add lint checks
+* The fight screen will always generate the same result since the teams does not change we can improve this by shuffling the teams. This wasn't on the requirements so I didn't want to go beyond the scope for now.
+* Use a String resource manager to access safely string.xml resources on places without android context
 
 ## Notes
 
-• The Api doc says that the TransformerId is an Int but in reality is a String  
-• This can be improved with more test and some UI refactor since it's pretty simple as it is  
-• Increase the minimum sdk can help to use some libraries such as the security one in order to use  
+* The Api doc says that the TransformerId is an Int but in reality is a String
+* This can be improved with more test and some UI refactor since it's pretty simple as it is
+* Increase the minimum sdk can help to use some libraries such as the security one in order to use  
 encrypted shared preferences.
 
 ## Changelog
 
 Version 1.0.0
 
-• Inventory screen implement to check your registered units  
-• Summon screen to recruit new units and create custom ones  
-• Battle screen to simulate a Battle between your units  
-• Added TeamBattleResultUseCaseImplTest and ValidateVersusTeamsUseCaseImplTest
+* Inventory screen implement to check your registered units
+* Summon screen to recruit new units and create custom ones
+* Battle screen to simulate a Battle between your units
+* Added TeamBattleResultUseCaseImplTest and ValidateVersusTeamsUseCaseImplTest

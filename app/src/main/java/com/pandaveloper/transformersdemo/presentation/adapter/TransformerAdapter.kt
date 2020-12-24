@@ -38,9 +38,9 @@ class TransformerAdapter(
     inner class TransformerViewHolder(private val binding: TransformerItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(unit: TransformerUIModel) {
-            binding.unitName.text = "Name: ${unit.name}"
-            binding.unitRating.text = "Overall Rating: ${unit.unitStats.calculateRating()}"
-            binding.unitTeam.text = "Team: ${unit.team}"
+            binding.unitName.text = binding.root.context.getString(R.string.transformer_adapter_unit_name_label, unit.name)
+            binding.unitRating.text = binding.root.context.getString(R.string.transformer_adapter_unit_rating_label, unit.calculateRating().toString())
+            binding.unitTeam.text = binding.root.context.getString(R.string.transformer_adapter_unit_team_label, unit.team)
             binding.unitTypeImage.setImageDrawable(
                 when(unit.team) {
                     UnitTeam.AUTOBOT -> ContextCompat.getDrawable(binding.root.context, R.drawable.autobot_summon_icon)

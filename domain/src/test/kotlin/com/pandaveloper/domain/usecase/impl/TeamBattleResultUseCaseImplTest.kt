@@ -1,7 +1,8 @@
 package com.pandaveloper.domain.usecase.impl
 
 import com.pandaveloper.domain.model.result.TeamBattleResult
-import com.pandaveloper.testUtils.TestHelper
+import com.pandaveloper.domain.testutils.TestHelper
+import com.pandaveloper.domain.utils.Constants
 import org.junit.Assert
 import org.junit.Test
 
@@ -19,7 +20,7 @@ class TeamBattleResultUseCaseImplTest {
     @Test
     fun `Given a fight between Optimus and any other decepticon, the use case will return a AutobotWin result due to the special rule`() {
         //Create Optimus Prime
-        val autobotTeam = listOf(TestHelper.createAutobot("Optimus Prime"))
+        val autobotTeam = listOf(TestHelper.createAutobot(Constants.OPTIMUS))
         //Create a basic decepticon
         val decepticonTeam = listOf(TestHelper.createDecepticon())
         //Result should be instawin for Autobot
@@ -33,7 +34,7 @@ class TeamBattleResultUseCaseImplTest {
         //Create basic autobot
         val autobotTeam = listOf(TestHelper.createAutobot())
         //Create Predaking
-        val decepticonTeam = listOf(TestHelper.createDecepticon("Predaking"))
+        val decepticonTeam = listOf(TestHelper.createDecepticon(Constants.PREDAKING))
         //Result should be instawin for Decepticon
         val result = useCase.execute(autobotTeam, decepticonTeam)
 
@@ -43,9 +44,9 @@ class TeamBattleResultUseCaseImplTest {
     @Test
     fun `Given a fight between Optimus and Predaking, the use case will return a Destroyed result due to the special rule`() {
         //Create Optimus
-        val autobotTeam = listOf(TestHelper.createAutobot("Optimus Prime"))
+        val autobotTeam = listOf(TestHelper.createAutobot(Constants.OPTIMUS))
         //Create Predaking
-        val decepticonTeam = listOf(TestHelper.createDecepticon("Predaking"))
+        val decepticonTeam = listOf(TestHelper.createDecepticon(Constants.PREDAKING))
         //Result should be Destroyed, no one wins
         val result = useCase.execute(autobotTeam, decepticonTeam)
 
@@ -75,7 +76,7 @@ class TeamBattleResultUseCaseImplTest {
     @Test
     fun `Given an autobot that wins match1, the use case will return an AutobotWin result due to the rules of match1`() {
         //Create an autobot with higher courage and strengh
-        val autobotTeam = listOf(TestHelper.createTransformer(courage = 5, strength = 4))
+        val autobotTeam = listOf(TestHelper.createAutobot(courage = 5, strength = 4))
         //Create basic decepticon
         val decepticonTeam = listOf(TestHelper.createDecepticon())
         //Result should be a win for autobot
@@ -89,7 +90,7 @@ class TeamBattleResultUseCaseImplTest {
         //Create a basic autobot
         val autobotTeam = listOf(TestHelper.createAutobot())
         //Create a decepticon with higher courage and strengh
-        val decepticonTeam = listOf(TestHelper.createTransformer(team = "D", courage = 5, strength = 4))
+        val decepticonTeam = listOf(TestHelper.createDecepticon(courage = 5, strength = 4))
         //Result should be a win for decepticon
         val result = useCase.execute(autobotTeam, decepticonTeam)
 
@@ -106,10 +107,9 @@ class TeamBattleResultUseCaseImplTest {
     @Test
     fun `Given an autobot that wins match2, the use case will return an AutobotWin result due to the rules of match2`() {
         //Create an autobot with hight skill
-        val autobotTeam = listOf(TestHelper.createTransformer(skill = 4))
+        val autobotTeam = listOf(TestHelper.createAutobot(skill = 4))
         //Create a decepticon with better rating but low skill. No courage nor strenght to bypass match1
-        val decepticonTeam = listOf(TestHelper.createTransformer(
-            team = "D",
+        val decepticonTeam = listOf(TestHelper.createDecepticon(
             intelligence = 10,
             endurance = 10,
             speed = 10,
@@ -125,7 +125,7 @@ class TeamBattleResultUseCaseImplTest {
     @Test
     fun `Given a decepticon that wins match2, the use case will return an DecepticonWin result due to the rules of match2`() {
         //Create an autobot with high rating but low skill.  No courage nor strenght to bypass match1
-        val autobotTeam = listOf(TestHelper.createTransformer(
+        val autobotTeam = listOf(TestHelper.createAutobot(
             intelligence = 10,
             endurance = 10,
             speed = 10,
@@ -133,7 +133,7 @@ class TeamBattleResultUseCaseImplTest {
             firepower = 10
         ))
         //Create a decepticon with high skill
-        val decepticonTeam = listOf(TestHelper.createTransformer(team = "D", skill = 4))
+        val decepticonTeam = listOf(TestHelper.createDecepticon(skill = 4))
         //Result should be a win for decepticon
         val result = useCase.execute(autobotTeam, decepticonTeam)
 
@@ -148,7 +148,7 @@ class TeamBattleResultUseCaseImplTest {
     @Test
     fun `Given an autobot that wins match3, the use case will return an AutobotWin result due to the rules of match3`() {
         //Create an autobot with high rating. No courage nor strenght nor skill to bypass match1 and 2
-        val autobotTeam = listOf(TestHelper.createTransformer(
+        val autobotTeam = listOf(TestHelper.createAutobot(
             intelligence = 10,
             endurance = 10,
             speed = 10,
@@ -168,8 +168,7 @@ class TeamBattleResultUseCaseImplTest {
         //Create a basic autobot
         val autobotTeam = listOf(TestHelper.createAutobot())
         //Create a decepticon with high rating. No courage nor strenght nor skill to bypass match1 and 2
-        val decepticonTeam = listOf(TestHelper.createTransformer(
-            team = "D",
+        val decepticonTeam = listOf(TestHelper.createDecepticon(
             intelligence = 10,
             endurance = 10,
             speed = 10,
@@ -195,5 +194,4 @@ class TeamBattleResultUseCaseImplTest {
         Assert.assertTrue(result is TeamBattleResult.DecepticonWin)
         Assert.assertTrue((result as TeamBattleResult.DecepticonWin).autobotSurvivors.size == 1)
     }
-
 }
