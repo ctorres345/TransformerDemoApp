@@ -14,13 +14,13 @@
         android:id="@+id/startFragment"
         android:name="com.pandaveloper.transformersdemo.presentation.ui.start.StartFragment"
         android:label="fragment_start"
-        app:enterAnim="@android:anim/slide_in_left"
-        app:exitAnim="@android:anim/slide_out_right"
+        app:enterAnim="@animator/fade_in"
+        app:exitAnim="@animator/fade_out"
         tools:layout="@layout/fragment_start">
 
         <action
             android:id="@+id/action_startFragment_to_homeFragment"
-            app:popUpTo="@id/homeFragment"
+            app:popUpTo="@id/startFragment"
             app:popUpToInclusive="true"
             app:destination="@id/homeFragment"/>
 
@@ -30,8 +30,8 @@
         android:id="@+id/homeFragment"
         android:name="com.pandaveloper.transformersdemo.presentation.ui.home.HomeFragment"
         android:label="fragment_home"
-        app:enterAnim="@android:anim/slide_in_left"
-        app:exitAnim="@android:anim/slide_out_right"
+        app:enterAnim="@animator/fade_in"
+        app:exitAnim="@animator/fade_out"
         tools:layout="@layout/fragment_home">
 
         <action
@@ -52,24 +52,24 @@
         android:id="@+id/summonFragment"
         android:name="com.pandaveloper.transformersdemo.presentation.ui.summon.SummonFragment"
         android:label="fragment_summon"
-        app:enterAnim="@android:anim/slide_in_left"
-        app:exitAnim="@android:anim/slide_out_right"
+        app:enterAnim="@animator/fade_in"
+        app:exitAnim="@animator/fade_out"
         tools:layout="@layout/fragment_summon"/>
 
     <fragment
         android:id="@+id/inventoryFragment"
         android:name="com.pandaveloper.transformersdemo.presentation.ui.inventory.InventoryFragment"
         android:label="fragment_inventory"
-        app:enterAnim="@android:anim/slide_in_left"
-        app:exitAnim="@android:anim/slide_out_right"
+        app:enterAnim="@animator/fade_in"
+        app:exitAnim="@animator/fade_out"
         tools:layout="@layout/fragment_inventory"/>
 
     <fragment
         android:id="@+id/versusFragment"
         android:name="com.pandaveloper.transformersdemo.presentation.ui.versus.VersusFragment"
         android:label="fragment_versus"
-        app:enterAnim="@android:anim/slide_in_left"
-        app:exitAnim="@android:anim/slide_out_right"
+        app:enterAnim="@animator/fade_in"
+        app:exitAnim="@animator/fade_out"
         tools:layout="@layout/fragment_versus"/>
 
     <dialog
