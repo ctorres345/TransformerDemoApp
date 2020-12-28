@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.pandaveloper.transformersdemo.R
 import com.pandaveloper.transformersdemo.databinding.DialogEditUnitBinding
 import com.pandaveloper.transformersdemo.enums.UnitTeam
@@ -60,7 +62,7 @@ class EditUnitDialog : BottomSheetDialogFragment(){
     private fun initUI() {
         binding.updateButton.setDebounceOnClickListener {
             originalUnit?.let {
-                cleanCustomStatsErrors()
+                cleanInputErrors()
                 viewModel.updateUnit(it, binding.nameInput.text.toString(), team, type, generateCustomStats())
             }
         }
@@ -114,23 +116,17 @@ class EditUnitDialog : BottomSheetDialogFragment(){
     private fun onViewStateUpdated(event: SingleEmitionEvent<EditUnitViewState>?) {
         event?.peekContent()?.let {
             when(it) {
-                is EditUnitViewState.OnUnitNameError -> showUnitNameError(requireContext().getString(R.string.unit_name_error))
-                is EditUnitViewState.OnUnitTypeError -> {
-                    binding.nameLayout.error = null
-                    showUnitTypeError(requireContext().getString(R.string.unit_type_error))
-                }
-                is EditUnitViewState.OnUnitTeamError -> {
-                    binding.nameLayout.error = null
-                    showUnitTeamError(requireContext().getString(R.string.unit_team_error))
-                }
-                is EditUnitViewState.OnUnitStrengthError -> showStrengthError()
-                is EditUnitViewState.OnUnitSkillError -> showSkillError()
-                is EditUnitViewState.OnUnitFirepowerError -> showFirepowerError()
-                is EditUnitViewState.OnUnitCourageError -> showCourageError()
-                is EditUnitViewState.OnUnitRankError -> showRankError()
-                is EditUnitViewState.OnUnitEnduranceError -> showEnduranceError()
-                is EditUnitViewState.OnUnitSpeedError -> showSpeedError()
-                is EditUnitViewState.OnUnitIntelligenceError -> showIntelligenceError()
+                is EditUnitViewState.OnUnitNameError -> showUnitNameError()
+                is EditUnitViewState.OnUnitTypeError -> showUnitTypeError()
+                is EditUnitViewState.OnUnitTeamError -> showUnitTeamError()
+                is EditUnitViewState.OnUnitStrengthError -> showStatError(binding.customStatsLayout.strengthLayout)
+                is EditUnitViewState.OnUnitSkillError -> showStatError(binding.customStatsLayout.skillLayout)
+                is EditUnitViewState.OnUnitFirepowerError -> showStatError(binding.customStatsLayout.firepowerLayout)
+                is EditUnitViewState.OnUnitCourageError -> showStatError(binding.customStatsLayout.courageLayout)
+                is EditUnitViewState.OnUnitRankError -> showStatError(binding.customStatsLayout.rankLayout)
+                is EditUnitViewState.OnUnitEnduranceError -> showStatError(binding.customStatsLayout.enduranceLayout)
+                is EditUnitViewState.OnUnitSpeedError -> showStatError(binding.customStatsLayout.speedLayout)
+                is EditUnitViewState.OnUnitIntelligenceError -> showStatError(binding.customStatsLayout.intelligenceLayout)
             }
         }
     }
@@ -138,63 +134,46 @@ class EditUnitDialog : BottomSheetDialogFragment(){
     private fun generateCustomStats() : UnitStatsUIModel? {
         return if(type != null && type == UnitType.CUSTOM) {
             UnitStatsUIModel(
-                strength = if(binding.customStatsLayout.strengthInput.text.toString().isEmpty()) 0 else binding.customStatsLayout.strengthInput.text.toString().toInt(),
-                intelligence = if(binding.customStatsLayout.intelligenceInput.text.toString().isEmpty()) 0 else binding.customStatsLayout.intelligenceInput.text.toString().toInt(),
-                speed = if(binding.customStatsLayout.speedInput.text.toString().isEmpty()) 0 else binding.customStatsLayout.speedInput.text.toString().toInt(),
-                endurance = if(binding.customStatsLayout.enduranceInput.text.toString().isEmpty()) 0 else binding.customStatsLayout.enduranceInput.text.toString().toInt(),
-                rank = if(binding.customStatsLayout.rankInput.text.toString().isEmpty()) 0 else binding.customStatsLayout.rankInput.text.toString().toInt(),
-                courage = if(binding.customStatsLayout.courageInput.text.toString().isEmpty()) 0 else binding.customStatsLayout.courageInput.text.toString().toInt(),
-                firepower = if(binding.customStatsLayout.firepowerInput.text.toString().isEmpty()) 0 else binding.customStatsLayout.firepowerInput.text.toString().toInt(),
-                skill = if(binding.customStatsLayout.skillInput.text.toString().isEmpty()) 0 else binding.customStatsLayout.skillInput.text.toString().toInt()
+                strength = getStatAmount(binding.customStatsLayout.strengthInput),
+                intelligence = getStatAmount(binding.customStatsLayout.intelligenceInput),
+                speed = getStatAmount(binding.customStatsLayout.speedInput),
+                endurance = getStatAmount(binding.customStatsLayout.enduranceInput),
+                rank = getStatAmount(binding.customStatsLayout.rankInput),
+                courage = getStatAmount(binding.customStatsLayout.courageInput),
+                firepower = getStatAmount(binding.customStatsLayout.firepowerInput),
+                skill = getStatAmount(binding.customStatsLayout.skillInput)
             )
         } else null
     }
 
-    private fun showUnitNameError(errorMessage: String) {
-        binding.nameLayout.error = errorMessage
+    private fun showUnitNameError() {
+        showInputError(binding.nameLayout, requireContext().getString(R.string.unit_name_error))
     }
 
-    private fun showUnitTypeError(errorMessage: String) {
-        binding.typeLayout.error = errorMessage
+    private fun showUnitTypeError() {
+        showInputError(binding.typeLayout, requireContext().getString(R.string.unit_type_error))
     }
 
-    private fun showUnitTeamError(errorMessage: String) {
-        binding.teamLayout.error = errorMessage
+    private fun showUnitTeamError() {
+        showInputError(binding.teamLayout, requireContext().getString(R.string.unit_team_error))
     }
 
-    private fun showStrengthError() {
-        binding.customStatsLayout.strengthLayout.error = requireContext().getString(R.string.unit_stat_error)
+    private fun showStatError(statLayout: TextInputLayout) {
+        showInputError(statLayout, requireContext().getString(R.string.unit_stat_error))
     }
 
-    private fun showIntelligenceError() {
-        binding.customStatsLayout.intelligenceLayout.error = requireContext().getString(R.string.unit_stat_error)
+    private fun showInputError(statLayout: TextInputLayout, errorMessage: String) {
+        statLayout.error = errorMessage
     }
 
-    private fun showSpeedError() {
-        binding.customStatsLayout.speedLayout.error = requireContext().getString(R.string.unit_stat_error)
+    private fun getStatAmount(statInput: TextInputEditText) : Int {
+        return if(statInput.text.toString().isEmpty()) 0 else statInput.text.toString().toInt()
     }
 
-    private fun showEnduranceError() {
-        binding.customStatsLayout.enduranceLayout.error = requireContext().getString(R.string.unit_stat_error)
-    }
-
-    private fun showRankError() {
-        binding.customStatsLayout.rankLayout.error = requireContext().getString(R.string.unit_stat_error)
-    }
-
-    private fun showCourageError() {
-        binding.customStatsLayout.courageLayout.error = requireContext().getString(R.string.unit_stat_error)
-    }
-
-    private fun showFirepowerError() {
-        binding.customStatsLayout.firepowerLayout.error = requireContext().getString(R.string.unit_stat_error)
-    }
-
-    private fun showSkillError() {
-        binding.customStatsLayout.skillLayout.error = requireContext().getString(R.string.unit_stat_error)
-    }
-
-    private fun cleanCustomStatsErrors() {
+    private fun cleanInputErrors() {
+        binding.nameLayout.error = null
+        binding.teamLayout.error = null
+        binding.typeLayout.error = null
         binding.customStatsLayout.strengthLayout.error = null
         binding.customStatsLayout.intelligenceLayout.error = null
         binding.customStatsLayout.speedLayout.error = null

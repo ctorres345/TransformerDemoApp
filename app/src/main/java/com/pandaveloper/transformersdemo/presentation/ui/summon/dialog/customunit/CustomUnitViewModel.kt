@@ -33,7 +33,9 @@ class CustomUnitViewModel @ViewModelInject constructor() : BaseViewModel() {
             if(customStats == null) return
 
             if(!customStats.hasValidStats()){
-                validateCustomStats(customStats)
+                validateCustomStats(customStats)?.let {
+                    viewState.value = SingleEmitionEvent(it)
+                }
                 return
             }
         }
@@ -52,38 +54,17 @@ class CustomUnitViewModel @ViewModelInject constructor() : BaseViewModel() {
         ))
     }
 
-    private fun validateCustomStats(customStats: UnitStatsUIModel) {
-        if(!customStats.strength.isValidStat()){
-            viewState.value = SingleEmitionEvent(CustomUnitViewState.OnUnitStrengthError)
-            return
-        }
-        if(!customStats.intelligence.isValidStat()){
-            viewState.value = SingleEmitionEvent(CustomUnitViewState.OnUnitIntelligenceError)
-            return
-        }
-        if(!customStats.speed.isValidStat()){
-            viewState.value = SingleEmitionEvent(CustomUnitViewState.OnUnitSpeedError)
-            return
-        }
-        if(!customStats.endurance.isValidStat()){
-            viewState.value = SingleEmitionEvent(CustomUnitViewState.OnUnitEnduranceError)
-            return
-        }
-        if(!customStats.rank.isValidStat()){
-            viewState.value = SingleEmitionEvent(CustomUnitViewState.OnUnitRankError)
-            return
-        }
-        if(!customStats.courage.isValidStat()){
-            viewState.value = SingleEmitionEvent(CustomUnitViewState.OnUnitCourageError)
-            return
-        }
-        if(!customStats.firepower.isValidStat()){
-            viewState.value = SingleEmitionEvent(CustomUnitViewState.OnUnitFirepowerError)
-            return
-        }
-        if(!customStats.skill.isValidStat()){
-            viewState.value = SingleEmitionEvent(CustomUnitViewState.OnUnitSkillError)
-            return
+    private fun validateCustomStats(customStats: UnitStatsUIModel) : CustomUnitViewState? {
+        return when {
+            !customStats.strength.isValidStat() -> CustomUnitViewState.OnUnitStrengthError
+            !customStats.intelligence.isValidStat() -> CustomUnitViewState.OnUnitIntelligenceError
+            !customStats.speed.isValidStat() -> CustomUnitViewState.OnUnitSpeedError
+            !customStats.endurance.isValidStat() -> CustomUnitViewState.OnUnitEnduranceError
+            !customStats.rank.isValidStat() -> CustomUnitViewState.OnUnitRankError
+            !customStats.courage.isValidStat() -> CustomUnitViewState.OnUnitCourageError
+            !customStats.firepower.isValidStat() -> CustomUnitViewState.OnUnitFirepowerError
+            !customStats.skill.isValidStat() -> CustomUnitViewState.OnUnitSkillError
+            else -> null
         }
     }
 

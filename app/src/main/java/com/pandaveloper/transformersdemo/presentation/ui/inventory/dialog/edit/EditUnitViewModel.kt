@@ -33,7 +33,9 @@ class EditUnitViewModel @ViewModelInject constructor() : BaseViewModel() {
             if(customStats == null) return
 
             if(!customStats.hasValidStats()){
-                validateCustomStats(customStats)
+                validateCustomStats(customStats)?.let {
+                    viewState.value = SingleEmitionEvent(it)
+                }
                 return
             }
         }
@@ -52,41 +54,19 @@ class EditUnitViewModel @ViewModelInject constructor() : BaseViewModel() {
         ))
     }
 
-    private fun validateCustomStats(customStats: UnitStatsUIModel) {
-        if(!customStats.strength.isValidStat()){
-            viewState.value = SingleEmitionEvent(EditUnitViewState.OnUnitStrengthError)
-            return
-        }
-        if(!customStats.intelligence.isValidStat()){
-            viewState.value = SingleEmitionEvent(EditUnitViewState.OnUnitIntelligenceError)
-            return
-        }
-        if(!customStats.speed.isValidStat()){
-            viewState.value = SingleEmitionEvent(EditUnitViewState.OnUnitSpeedError)
-            return
-        }
-        if(!customStats.endurance.isValidStat()){
-            viewState.value = SingleEmitionEvent(EditUnitViewState.OnUnitEnduranceError)
-            return
-        }
-        if(!customStats.rank.isValidStat()){
-            viewState.value = SingleEmitionEvent(EditUnitViewState.OnUnitRankError)
-            return
-        }
-        if(!customStats.courage.isValidStat()){
-            viewState.value = SingleEmitionEvent(EditUnitViewState.OnUnitCourageError)
-            return
-        }
-        if(!customStats.firepower.isValidStat()){
-            viewState.value = SingleEmitionEvent(EditUnitViewState.OnUnitFirepowerError)
-            return
-        }
-        if(!customStats.skill.isValidStat()){
-            viewState.value = SingleEmitionEvent(EditUnitViewState.OnUnitSkillError)
-            return
+    private fun validateCustomStats(customStats: UnitStatsUIModel) : EditUnitViewState? {
+        return when {
+            !customStats.strength.isValidStat() -> EditUnitViewState.OnUnitStrengthError
+            !customStats.intelligence.isValidStat() -> EditUnitViewState.OnUnitIntelligenceError
+            !customStats.speed.isValidStat() -> EditUnitViewState.OnUnitSpeedError
+            !customStats.endurance.isValidStat() -> EditUnitViewState.OnUnitEnduranceError
+            !customStats.rank.isValidStat() -> EditUnitViewState.OnUnitRankError
+            !customStats.courage.isValidStat() -> EditUnitViewState.OnUnitCourageError
+            !customStats.firepower.isValidStat() -> EditUnitViewState.OnUnitFirepowerError
+            !customStats.skill.isValidStat() -> EditUnitViewState.OnUnitSkillError
+            else -> null
         }
     }
 
     private fun Int.isValidStat() = this in 1..10
-
 }

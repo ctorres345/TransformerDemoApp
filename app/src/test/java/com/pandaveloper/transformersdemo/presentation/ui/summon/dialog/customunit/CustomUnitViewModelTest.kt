@@ -47,9 +47,51 @@ class CustomUnitViewModelTest {
     }
 
     @Test
-    fun `Given a call to the save function with a custom type and invalid stats, the function return error`() {
+    fun `Given a call to the save function with a custom type and invalid strength stat, the function return error`() {
         viewModel.saveCustomUnit(name = "Test", team = UnitTeam.AUTOBOT, type = UnitType.CUSTOM, customStats = UnitStatsUIModel().apply { strength = 0 })
         assertTrue(viewModel.getViewState.value?.peekContent() == CustomUnitViewState.OnUnitStrengthError)
+    }
+
+    @Test
+    fun `Given a call to the save function with a custom type and invalid intelligence stat, the function return error`() {
+        viewModel.saveCustomUnit(name = "Test", team = UnitTeam.AUTOBOT, type = UnitType.CUSTOM, customStats = UnitStatsUIModel().apply { intelligence = 11 })
+        assertTrue(viewModel.getViewState.value?.peekContent() == CustomUnitViewState.OnUnitIntelligenceError)
+    }
+
+    @Test
+    fun `Given a call to the save function with a custom type and invalid speed stat, the function return error`() {
+        viewModel.saveCustomUnit(name = "Test", team = UnitTeam.AUTOBOT, type = UnitType.CUSTOM, customStats = UnitStatsUIModel().apply { speed = 0 })
+        assertTrue(viewModel.getViewState.value?.peekContent() == CustomUnitViewState.OnUnitSpeedError)
+    }
+
+    @Test
+    fun `Given a call to the save function with a custom type and invalid endurance stat, the function return error`() {
+        viewModel.saveCustomUnit(name = "Test", team = UnitTeam.AUTOBOT, type = UnitType.CUSTOM, customStats = UnitStatsUIModel().apply { endurance = 11 })
+        assertTrue(viewModel.getViewState.value?.peekContent() == CustomUnitViewState.OnUnitEnduranceError)
+    }
+
+    @Test
+    fun `Given a call to the save function with a custom type and invalid rank stat, the function return error`() {
+        viewModel.saveCustomUnit(name = "Test", team = UnitTeam.AUTOBOT, type = UnitType.CUSTOM, customStats = UnitStatsUIModel().apply { rank = 0 })
+        assertTrue(viewModel.getViewState.value?.peekContent() == CustomUnitViewState.OnUnitRankError)
+    }
+
+    @Test
+    fun `Given a call to the save function with a custom type and invalid courage stat, the function return error`() {
+        viewModel.saveCustomUnit(name = "Test", team = UnitTeam.AUTOBOT, type = UnitType.CUSTOM, customStats = UnitStatsUIModel().apply { courage = 11 })
+        assertTrue(viewModel.getViewState.value?.peekContent() == CustomUnitViewState.OnUnitCourageError)
+    }
+
+    @Test
+    fun `Given a call to the save function with a custom type and invalid firepower stat, the function return error`() {
+        viewModel.saveCustomUnit(name = "Test", team = UnitTeam.AUTOBOT, type = UnitType.CUSTOM, customStats = UnitStatsUIModel().apply { firepower = 0 })
+        assertTrue(viewModel.getViewState.value?.peekContent() == CustomUnitViewState.OnUnitFirepowerError)
+    }
+
+    @Test
+    fun `Given a call to the save function with a custom type and invalid skill stat, the function return error`() {
+        viewModel.saveCustomUnit(name = "Test", team = UnitTeam.AUTOBOT, type = UnitType.CUSTOM, customStats = UnitStatsUIModel().apply { skill = 11 })
+        assertTrue(viewModel.getViewState.value?.peekContent() == CustomUnitViewState.OnUnitSkillError)
     }
 
     @Test

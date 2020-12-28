@@ -3,7 +3,7 @@ package com.pandaveloper.transformersdemo.util
 import android.view.View
 
 class DebounceClickListener(
-    private val intervalMillis: Long = 1000,
+    private val intervalMillis: Long = 500,
     private val doClick: ((View) -> Unit)
 ) : View.OnClickListener {
 
