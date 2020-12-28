@@ -7,23 +7,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_edit_unit_cancel_button"
+        android:gravity="start"
+        android:padding="@dimen/space_8dp"
+        android:textColor="@color/colorPrimary"
+        style="@style/TransformerTextStyle15"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/title"
+        app:layout_constraintVertical_chainStyle="spread_inside"/>
+
+    <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/dialog_edit_unit_title"
         android:gravity="center"
-        style="@style/TransformerTextStyle42"
-        app:layout_constraintVertical_chainStyle="spread_inside"
+        style="@style/TransformerTextStyle24"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/name_layout"/>
+        app:layout_constraintStart_toEndOf="@id/cancel_button"
+        app:layout_constraintEnd_toStartOf="@id/update_button"/>
+
+    <TextView
+        android:id="@+id/update_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_edit_unit_update_button"
+        android:gravity="end"
+        android:padding="@dimen/space_8dp"
+        android:textColor="@color/colorPrimary"
+        style="@style/TransformerTextStyle15"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/title"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/name_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/dialog_edit_unit_name_hint"
+        android:layout_marginTop="@dimen/space_8dp"
         android:layout_marginBottom="@dimen/space_8dp"
         app:endIconMode="clear_text"
         app:errorEnabled="true"
@@ -80,7 +106,7 @@
         app:layout_constraintTop_toBottomOf="@id/team_layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/update_button">
+        app:layout_constraintBottom_toTopOf="@id/custom_stats_layout">
 
         <AutoCompleteTextView
             android:id="@+id/type_picker"
@@ -94,14 +120,12 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/update_button"
+    <include
+        android:id="@+id/custom_stats_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_edit_unit_button_label"
-        android:textColor="@android:color/white"
-        android:background="@color/colorPrimary"
-        style="@style/TransformerTextStyle15"
+        android:visibility="gone"
+        layout="@layout/view_custom_stats"
         app:layout_constraintTop_toBottomOf="@id/type_layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

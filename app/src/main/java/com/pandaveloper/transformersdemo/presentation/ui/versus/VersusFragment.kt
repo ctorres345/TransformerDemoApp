@@ -64,21 +64,21 @@ class VersusFragment : BaseViewModelFragment() {
                 is VersusViewState.NoUnitsError -> {
                     loadingDialog.dismissLoading()
                     findNavController().navigateUp()
-                    Toast.makeText(requireContext(), "You don't have any unit in your inventory. Please select summon and recruit some units.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), requireContext().getString(R.string.versus_error_no_unit), Toast.LENGTH_LONG).show()
                 }
                 is VersusViewState.NoAutobotsError -> {
                     loadingDialog.dismissLoading()
                     findNavController().navigateUp()
-                    Toast.makeText(requireContext(), "You don't have any Autobot unit in your inventory. Please select summon and recruit some units.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), requireContext().getString(R.string.versus_error_no_autobot), Toast.LENGTH_LONG).show()
                 }
                 is VersusViewState.NoDecepticonsError -> {
                     loadingDialog.dismissLoading()
                     findNavController().navigateUp()
-                    Toast.makeText(requireContext(), "You don't have any Decepticon unit in your inventory. Please select summon and recruit some units.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), requireContext().getString(R.string.versus_error_no_decepticon), Toast.LENGTH_LONG).show()
                 }
                 is VersusViewState.OnBattleResults -> {
                     loadingDialog.dismissLoading()
-                    val bundle = bundleOf(Constants.BundleParams.PARAM_BATTLE_RESULT to it.result)
+                    val bundle = bundleOf(Constants.Params.PARAM_BATTLE_RESULT to it.result)
                     findNavController().navigate(R.id.battleResultDialog, bundle)
                 }
             }

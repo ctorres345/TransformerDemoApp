@@ -13,7 +13,7 @@ import com.pandaveloper.transformersdemo.presentation.callback.OptionMenuAdapter
 import com.pandaveloper.transformersdemo.util.Constants
 
 class OptionMenuAdapter(
-    private val optionList: List<MenuOptionUIModel> = Constants.menuOptions,
+    private val optionList: List<MenuOptionUIModel> = Constants.Collections.MENU_OPTIONS,
     private val callback: OptionMenuAdapterCallback
 ) : RecyclerView.Adapter<OptionMenuAdapter.OptionMenuViewHolder>() {
 

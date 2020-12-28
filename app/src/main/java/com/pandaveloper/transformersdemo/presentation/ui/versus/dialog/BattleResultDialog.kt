@@ -61,24 +61,24 @@ class BattleResultDialog : DialogFragment() {
             when(result.result){
                 BattleResult.AUTOBOT -> {
                     binding.teamIcon.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.autobot_summon_icon))
-                    binding.winnerUnit.text = "Winner Unit: ${result.winningUnitName}"
-                    binding.survivorNames.text = "Loosing Team Survivors : \n${result.losingTeamSurvivors}"
+                    binding.winnerUnit.text = requireContext().getString(R.string.battle_result_winning_unit, result.winningUnitName)
+                    binding.survivorNames.text = requireContext().getString(R.string.battle_result_survivors, result.losingTeamSurvivors)
                 }
                 BattleResult.DECEPTICON -> {
                     binding.teamIcon.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.decepticon_summon_icon))
-                    binding.winnerUnit.text = "Winner Unit: ${result.winningUnitName}"
-                    binding.survivorNames.text = "Loosing Team Survivors : \n${result.losingTeamSurvivors}"
+                    binding.winnerUnit.text = requireContext().getString(R.string.battle_result_winning_unit, result.winningUnitName)
+                    binding.survivorNames.text = requireContext().getString(R.string.battle_result_survivors, result.losingTeamSurvivors)
                 }
                 BattleResult.TIE -> {
                     binding.teamIcon.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.tie_icon))
-                    binding.winningTeam.text = "NO WINNER"
-                    binding.winnerUnit.text = "So sad, no one won :("
+                    binding.winningTeam.text = requireContext().getString(R.string.battle_result_tie)
+                    binding.winnerUnit.text = requireContext().getString(R.string.battle_result_tie_detail)
                     binding.survivorNames.makeInvisible()
                 }
                 BattleResult.DESTROYED -> {
                     binding.teamIcon.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.destroyed_icon))
-                    binding.winningTeam.text = "DESTROYED"
-                    binding.winnerUnit.text = "Too powerful, everyone died"
+                    binding.winningTeam.text = requireContext().getString(R.string.battle_result_destroyed)
+                    binding.winnerUnit.text = requireContext().getString(R.string.battle_result_destroyed_detail)
                     binding.survivorNames.makeInvisible()
                 }
             }
@@ -86,7 +86,7 @@ class BattleResultDialog : DialogFragment() {
     }
 
     private fun initArguments() {
-        (arguments?.getSerializable(Constants.BundleParams.PARAM_BATTLE_RESULT) as? BattleResultUIModel)?.let {
+        (arguments?.getSerializable(Constants.Params.PARAM_BATTLE_RESULT) as? BattleResultUIModel)?.let {
             battleResult = it
         }
     }

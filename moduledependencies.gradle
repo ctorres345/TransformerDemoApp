@@ -24,6 +24,8 @@ ext{
             [configuration: "testImplementation", dependency: kotlin_test],
             [configuration: "testImplementation", dependency: kotlinx_coroutines],
             [configuration: "testImplementation", dependency: kotlinx_coroutines_test],
+            [configuration: "testImplementation", dependency: ax_core_testing],
+            [configuration: "androidTestImplementation", dependency: ax_core_testing],
             [configuration: "androidTestImplementation", dependency: junit_ext],
             [configuration: "androidTestImplementation", dependency: espresso_core],
             [configuration: "kaptTest", dependency: hilt_compiler]

@@ -16,6 +16,7 @@
     <dimen name="space_42dp">42dp</dimen>
 
     <dimen name="general_screen_margin">24dp</dimen>
+    <dimen name="general_dialog_margin">16dp</dimen>
     <dimen name="general_elevation">3dp</dimen>
     <dimen name="general_corner_radius">6dp</dimen>
 

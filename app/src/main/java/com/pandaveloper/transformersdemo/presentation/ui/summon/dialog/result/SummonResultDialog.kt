@@ -54,13 +54,13 @@ class SummonResultDialog : DialogFragment() {
                     UnitTeam.DECEPTICON -> ContextCompat.getDrawable(requireContext(), R.drawable.decepticon_summon_icon)
                 }
             )
-            binding.unitName.text = it.displayName
-            binding.unitRating.text = it.displayRating
+            binding.unitName.text = requireContext().getString(R.string.summoned_unit_name, it.unitName, it.unitStars.toString())
+            binding.unitRating.text = requireContext().getString(R.string.summoned_unit_rating, it.unitRating.toString())
         }
     }
 
     private fun initArguments() {
-        (arguments?.getSerializable(Constants.BundleParams.PARAM_UNIT) as? SummonedUnitUIModel)?.let {
+        (arguments?.getSerializable(Constants.Params.PARAM_UNIT) as? SummonedUnitUIModel)?.let {
             summonedUnit = it
         }
     }

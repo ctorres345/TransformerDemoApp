@@ -42,7 +42,7 @@ class SummonFragment : BaseViewModelFragment() {
 
     override fun initUI() {
         binding.summonIcon.setDebounceOnClickListener {
-            loadingDialog.showLoading("Summoning Unit...")
+            loadingDialog.showLoading()
             viewModel.summonUnit()
         }
         binding.createButton.setDebounceOnClickListener {
@@ -86,7 +86,7 @@ class SummonFragment : BaseViewModelFragment() {
     }
 
     private fun showSummonedUnit(summonedUnit: SummonedUnitUIModel) {
-        val bundle = bundleOf(Constants.BundleParams.PARAM_UNIT to summonedUnit)
+        val bundle = bundleOf(Constants.Params.PARAM_UNIT to summonedUnit)
         findNavController().navigate(R.id.summonDialog, bundle)
     }
 }

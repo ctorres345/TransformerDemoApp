@@ -15,8 +15,8 @@ import javax.inject.Inject
 
 class UnitTeamAdapter @Inject constructor(
     @ApplicationContext context: Context
-) : ArrayAdapter<UnitTeam>(context, R.layout.adapter_single_item, Constants.unitTeams) {
-    private val unitTeamList = Constants.unitTeams
+) : ArrayAdapter<UnitTeam>(context, R.layout.adapter_single_item, Constants.Collections.UNIT_TEAMS) {
+    private val unitTeamList = Constants.Collections.UNIT_TEAMS
 
     override fun getFilter(): Filter {
         return DisabledFilter()

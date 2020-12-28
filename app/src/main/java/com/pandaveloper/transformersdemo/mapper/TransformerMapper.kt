@@ -1,6 +1,7 @@
 package com.pandaveloper.transformersdemo.mapper
 
 import com.pandaveloper.domain.model.Transformer
+import com.pandaveloper.domain.utils.Constants
 import com.pandaveloper.transformersdemo.enums.UnitTeam
 import com.pandaveloper.transformersdemo.model.SummonedUnitUIModel
 import com.pandaveloper.transformersdemo.model.TransformerUIModel
@@ -13,7 +14,7 @@ fun Transformer.toUIModel() : TransformerUIModel {
     return TransformerUIModel(
         id = this.id,
         name = this.name,
-        team = if(this.team == "A") UnitTeam.AUTOBOT else UnitTeam.DECEPTICON,
+        team = if(this.team == Constants.AUTOBOT_TEAM) UnitTeam.AUTOBOT else UnitTeam.DECEPTICON,
         unitStats = UnitStatsUIModel(
             strength = this.strength,
             intelligence = this.intelligence,
@@ -33,8 +34,8 @@ fun TransformerUIModel.toDomainModel() : Transformer {
         id = this.id,
         name = this.name,
         team = when(this.team){
-            UnitTeam.AUTOBOT -> "A"
-            UnitTeam.DECEPTICON -> "D"
+            UnitTeam.AUTOBOT -> Constants.AUTOBOT_TEAM
+            UnitTeam.DECEPTICON -> Constants.DECEPTICON_TEAM
         },
         strength = this.unitStats.strength,
         intelligence = this.unitStats.intelligence,
@@ -50,9 +51,10 @@ fun TransformerUIModel.toDomainModel() : Transformer {
 
 fun TransformerUIModel.toSummonedUnitUIModel() : SummonedUnitUIModel {
     return SummonedUnitUIModel(
-        displayName = "${this.name} ${calculateStars()}",
-        displayRating = "Overall Rating : ${this.calculateRating()}",
-        displayStats = this.detailedStats(),
+        unitName = this.name,
+        unitRating = this.calculateRating(),
+        unitStats = this.detailedStats(),
+        unitStars = calculateStars(),
         team = this.team
     )
 }

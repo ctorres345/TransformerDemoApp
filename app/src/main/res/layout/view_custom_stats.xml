@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/strength_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/unit_stat_strength_hint"
+        android:layout_marginBottom="@dimen/space_8dp"
+        android:layout_marginEnd="@dimen/space_8dp"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        style="@style/TransformersTextInputLayout13"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/intelligence_layout"
+        app:layout_constraintBottom_toTopOf="@id/speed_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/strength_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:inputType="number"
+            android:maxLength="2"
+            style="@style/TransformersInputEditText15"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/intelligence_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/unit_stat_intelligence_hint"
+        android:layout_marginBottom="@dimen/space_8dp"
+        android:layout_marginStart="@dimen/space_8dp"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        style="@style/TransformersTextInputLayout13"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/strength_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/endurance_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/intelligence_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:inputType="number"
+            android:maxLength="2"
+            style="@style/TransformersInputEditText15"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/speed_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/unit_stat_speed_hint"
+        android:layout_marginBottom="@dimen/space_8dp"
+        android:layout_marginEnd="@dimen/space_8dp"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        style="@style/TransformersTextInputLayout13"
+        app:layout_constraintTop_toBottomOf="@id/strength_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/endurance_layout"
+        app:layout_constraintBottom_toTopOf="@id/rank_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/speed_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:inputType="number"
+            android:maxLength="2"
+            style="@style/TransformersInputEditText15"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/endurance_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/unit_stat_endurance_hint"
+        android:layout_marginBottom="@dimen/space_8dp"
+        android:layout_marginStart="@dimen/space_8dp"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        style="@style/TransformersTextInputLayout13"
+        app:layout_constraintTop_toBottomOf="@id/intelligence_layout"
+        app:layout_constraintStart_toEndOf="@id/speed_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/courage_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/endurance_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:inputType="number"
+            android:maxLength="2"
+            style="@style/TransformersInputEditText15"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/rank_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/unit_stat_rank_hint"
+        android:layout_marginBottom="@dimen/space_8dp"
+        android:layout_marginEnd="@dimen/space_8dp"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        style="@style/TransformersTextInputLayout13"
+        app:layout_constraintTop_toBottomOf="@id/speed_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/courage_layout"
+        app:layout_constraintBottom_toTopOf="@id/firepower_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rank_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:inputType="number"
+            android:maxLength="2"
+            style="@style/TransformersInputEditText15"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/courage_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/unit_stat_courage_hint"
+        android:layout_marginBottom="@dimen/space_8dp"
+        android:layout_marginStart="@dimen/space_8dp"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        style="@style/TransformersTextInputLayout13"
+        app:layout_constraintTop_toBottomOf="@id/endurance_layout"
+        app:layout_constraintStart_toEndOf="@id/rank_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/skill_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/courage_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:inputType="number"
+            android:maxLength="2"
+            style="@style/TransformersInputEditText15"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/firepower_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/unit_stat_firepower_hint"
+        android:layout_marginBottom="@dimen/space_8dp"
+        android:layout_marginEnd="@dimen/space_8dp"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        style="@style/TransformersTextInputLayout13"
+        app:layout_constraintTop_toBottomOf="@id/rank_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/skill_layout"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/firepower_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:inputType="number"
+            android:maxLength="2"
+            style="@style/TransformersInputEditText15"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/skill_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/unit_stat_skill_hint"
+        android:layout_marginBottom="@dimen/space_8dp"
+        android:layout_marginStart="@dimen/space_8dp"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        style="@style/TransformersTextInputLayout13"
+        app:layout_constraintTop_toBottomOf="@id/courage_layout"
+        app:layout_constraintStart_toEndOf="@id/firepower_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/skill_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:inputType="number"
+            android:maxLength="2"
+            style="@style/TransformersInputEditText15"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

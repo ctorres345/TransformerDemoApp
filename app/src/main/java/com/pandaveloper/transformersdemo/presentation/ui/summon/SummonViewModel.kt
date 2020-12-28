@@ -52,7 +52,7 @@ class SummonViewModel @ViewModelInject constructor(
                 addAll(
                     when(result) {
                         is TransformerResult.Success -> result.transformerList.map { it.toUIModel() }
-                        is TransformerResult.Error -> listOf(Constants.defaultTransformer)
+                        is TransformerResult.Error -> listOf(Constants.DEFAULT_UNIT)
                     }
                 )
             }

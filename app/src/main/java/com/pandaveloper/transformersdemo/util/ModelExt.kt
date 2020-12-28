@@ -28,10 +28,15 @@ fun UnitStatsUIModel.calculateRating() : Int {
     return this.strength + this.intelligence + this.speed + this.endurance + this.firepower
 }
 
+fun UnitStatsUIModel.hasValidStats() : Boolean {
+    return (strength in 1..10 && intelligence in 1..10 && speed in 1..10 && endurance in 1..10 &&
+            rank in 1..10 && courage in 1..10 && firepower in 1..10 && skill in 1..10)
+}
+
 fun TransformerUIModel.detailedStats() : String {
     val builder = StringBuilder()
     with(this.unitStats){
-        builder.append("Strenght = ${this.strength}\n")
+        builder.append("Strength = ${this.strength}\n")
         builder.append("Intelligence = ${this.intelligence}\n")
         builder.append("Speed = ${this.speed}\n")
         builder.append("Endurance = ${this.endurance}\n")

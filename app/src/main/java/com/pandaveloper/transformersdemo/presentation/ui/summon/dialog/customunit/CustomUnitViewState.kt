@@ -3,8 +3,16 @@ package com.pandaveloper.transformersdemo.presentation.ui.summon.dialog.customun
 import com.pandaveloper.transformersdemo.model.TransformerUIModel
 
 sealed class CustomUnitViewState {
-    data class OnUnitNameError(val errorMessage: String) : CustomUnitViewState()
-    data class OnUnitTeamError(val errorMessage: String) : CustomUnitViewState()
-    data class OnUnitTypeError(val errorMessage: String) : CustomUnitViewState()
+    object OnUnitNameError : CustomUnitViewState()
+    object OnUnitTeamError : CustomUnitViewState()
+    object OnUnitTypeError : CustomUnitViewState()
+    object OnUnitStrengthError : CustomUnitViewState()
+    object OnUnitIntelligenceError : CustomUnitViewState()
+    object OnUnitSpeedError : CustomUnitViewState()
+    object OnUnitEnduranceError : CustomUnitViewState()
+    object OnUnitRankError : CustomUnitViewState()
+    object OnUnitCourageError : CustomUnitViewState()
+    object OnUnitFirepowerError : CustomUnitViewState()
+    object OnUnitSkillError : CustomUnitViewState()
     data class OnUnitCreationSuccess(val transformer: TransformerUIModel) : CustomUnitViewState()
 }

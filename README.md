@@ -49,6 +49,9 @@ unit types, this would make it easier to register since going through each of th
 to more customization but as a user I think those are more steps. The doc didn't mentioned to register
 all the fields so I figured I could get over that with this strategy.
 
+*UPDATE (28/12/20) -> Regarding this previous comment I figured out the custom stat could be used for testing
+inside the app so I decided to add it anyways.*
+
 Using another mock Json to get a list of predefined units was also helpful. It made it easier to
 test the battle functionality.
 
@@ -63,6 +66,7 @@ Thanks to https://www.camphortree.net/tf/specs/ that served as a reference for t
 * Add lint checks
 * The fight screen will always generate the same result since the teams does not change we can improve this by shuffling the teams. This wasn't on the requirements so I didn't want to go beyond the scope for now.
 * Use a String resource manager to access safely string.xml resources on places without android context
+* Dark Theme can be supported easily but it would need some tweaks in colors and resources in order to make sure it looks good
 
 ## Notes
 
@@ -77,3 +81,12 @@ Version 1.0.0
 * Summon screen to recruit new units and create custom ones
 * Battle screen to simulate a Battle between your units
 * Added TeamBattleResultUseCaseImplTest and ValidateVersusTeamsUseCaseImplTest
+
+Version 1.0.1
+
+* Create ModelExtTest to add some testing for the extensions from that class
+* Create EditUnitViewModelTest and CustomUnitViewModelTest
+* Quality of life changes inside the CustomUnitDialog/EditUnitDialog
+* New Types added in order to easily test the rules in the battle mode.
+* Added custom type for custom stat creation for new units
+* Small UI refactor to avoid hardcoded strings

@@ -60,6 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_8dp"
         android:layout_marginBottom="@dimen/space_8dp"
+        android:text="@string/dialog_inventory_unit_detail_stats_title"
         style="@style/TransformerTextStyle24"
         app:layout_constraintTop_toBottomOf="@id/unit_rating"
         app:layout_constraintStart_toStartOf="parent"

@@ -117,6 +117,7 @@ class InventoryFragment : BaseViewModelFragment() {
                 is InventoryViewState.OnTransformerEditedSuccess -> {
                     loadingDialog.dismissLoading()
                     updateInventory(it.transformerList)
+                    Toast.makeText(requireContext(), "Your unit has been successfully updated", Toast.LENGTH_SHORT).show()
                 }
                 is InventoryViewState.OnTransformerEditedError -> {
                     loadingDialog.dismissLoading()
@@ -124,11 +125,11 @@ class InventoryFragment : BaseViewModelFragment() {
                     showErrorToast(it.errorMessage)
                 }
                 is InventoryViewState.ShowEditDialog -> {
-                    val bundle = bundleOf(Constants.BundleParams.PARAM_UNIT to it.transformer)
+                    val bundle = bundleOf(Constants.Params.PARAM_UNIT to it.transformer)
                     findNavController().navigate(R.id.editUnitDialog, bundle)
                 }
                 is InventoryViewState.ShowUnitDetailDialog -> {
-                    val bundle = bundleOf(Constants.BundleParams.PARAM_UNIT to it.unit)
+                    val bundle = bundleOf(Constants.Params.PARAM_UNIT to it.unit)
                     findNavController().navigate(R.id.inventoryUnitDetailDialog, bundle)
                 }
             }

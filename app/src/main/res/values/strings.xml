@@ -11,7 +11,10 @@
     <string name="dialog_edit_unit_team_hint">Team</string>
     <string name="dialog_edit_unit_type_hint">Type</string>
     <string name="dialog_edit_unit_button_label">Update</string>
+    <string name="dialog_edit_unit_cancel_button">Cancel</string>
+    <string name="dialog_edit_unit_update_button">Update</string>
     <string name="dialog_custom_unit_button_label">Save</string>
+    <string name="dialog_custom_unit_cancel_button">Cancel</string>
     <string name="dialog_inventory_unit_detail_title">Unit Detail</string>
     <string name="dialog_loading_default_message">Loading...</string>
     <string name="dialog_summon_title">New Unit</string>
@@ -28,5 +31,39 @@
     <string name="transformer_adapter_unit_name_label">Name: %1$s</string>
     <string name="transformer_adapter_unit_rating_label">Overall Rating: %1$s</string>
     <string name="transformer_adapter_unit_team_label">Team: %1$s</string>
+
+    <!-- Summoned Unit -->
+    <string name="summoned_unit_name">Name: %1$s %2$s</string>
+    <string name="summoned_unit_rating">Overall Rating: %1$s</string>
+
+    <!-- Battle Result -->
+    <string name="battle_result_winning_unit">Winning Unit: %1$s</string>
+    <string name="battle_result_survivors">Loosing Team Survivors:\n %1$s</string>
+    <string name="battle_result_tie">NO WINNER</string>
+    <string name="battle_result_tie_detail">So sad, no one won :(</string>
+    <string name="battle_result_destroyed">DESTROYED</string>
+    <string name="battle_result_destroyed_detail">Too powerful, everyone died</string>
+
+    <!-- Versus -->
+    <string name="versus_error_no_unit">You don\'t have any unit in your inventory. Please select summon and recruit some units.</string>
+    <string name="versus_error_no_autobot">You don\'t have any Autobot unit in your inventory. Please select summon and recruit some units.</string>
+    <string name="versus_error_no_decepticon">You don\'t have any Decepticon unit in your inventory. Please select summon and recruit some units.</string>
+    <string name="dialog_inventory_unit_detail_stats_title">Unit Stats:</string>
+
+    <!-- Custom Unit / Edit-->
+    <string name="unit_stat_strength_hint">Strength</string>
+    <string name="unit_stat_intelligence_hint">Intelligence</string>
+    <string name="unit_stat_speed_hint">Speed</string>
+    <string name="unit_stat_endurance_hint">Endurance</string>
+    <string name="unit_stat_rank_hint">Rank</string>
+    <string name="unit_stat_courage_hint">Courage</string>
+    <string name="unit_stat_firepower_hint">Firepower</string>
+    <string name="unit_stat_skill_hint">Skill</string>
+    <string name="unit_name_error">Please insert a valid name for your unit</string>
+    <string name="unit_team_error">Please select a valid team for your unit</string>
+    <string name="unit_type_error">Please select a valid type for your unit</string>
+    <string name="unit_stat_error">Please type a valid stat from 1 to 10 for your unit</string>
+
+
 
 </resources>

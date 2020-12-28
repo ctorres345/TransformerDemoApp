@@ -26,16 +26,17 @@ ext {
     fragment_ktx = "androidx.fragment:fragment-ktx:${fragment_ktx_version}"
     appCompat = "androidx.appcompat:appcompat:${appCompat_version}"
     constraintLayout = "androidx.constraintlayout:constraintlayout:${constraintLayout_version}"
+    ax_core_testing = "androidx.arch.core:core-testing:${android_core_testing_version}"
 
     /**
      * Testing
      */
     junit = "junit:junit:${junit_version}"
     junit_ext = "androidx.test.ext:junit:${junit_ext_version}"
-    espresso_core = "androidx.test.espresso:espresso-core:${espresso_core_version}"
     mockK_kotlin = "io.mockk:mockk:${mockK_version}"
     mockK_android = "io.mockk:mockk-android:${mockK_version}"
     mockK_common = "io.mockk:mockk-common:${mockK_version}"
+    espresso_core = "androidx.test.espresso:espresso-core:${espresso_core_version}"
 
     /**
      * Networking

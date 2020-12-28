@@ -15,8 +15,8 @@ import javax.inject.Inject
 
 class UnitTypeAdapter @Inject constructor(
     @ApplicationContext context: Context
-) : ArrayAdapter<UnitType>(context, R.layout.adapter_single_item, Constants.unitTypes) {
-    private val unitTypeList = Constants.unitTypes
+) : ArrayAdapter<UnitType>(context, R.layout.adapter_single_item, Constants.Collections.UNIT_TYPES) {
+    private val unitTypeList = Constants.Collections.UNIT_TYPES
 
     override fun getFilter(): Filter {
         return DisabledFilter()
